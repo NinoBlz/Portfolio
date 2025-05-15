@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci pour votre message | Nino Beluze</title>
+    <style>
+        :root {
+            --primary-color: #121212;
+            --secondary-color: #4484ff;
+            --accent-color: #ff5370;
+            --light-color: #292929;
+            --dark-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+            --section-padding: 80px 0;
+            --transition-speed: 0.3s;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--primary-color);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 4px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.4s ease;
+        }
+        
+        .logo:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content Styles */
+        .thank-you-section {
+            padding: 180px 0 100px;
+            text-align: center;
+            flex-grow: 1;
+            background: linear-gradient(135deg, #121212, #1c1c1c);
+        }
+        
+        .thank-you-content {
+            background-color: var(--card-bg);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            margin: 0 auto;
+            border-top: 3px solid var(--secondary-color);
+        }
+        
+        .thank-you-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .thank-you-message {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--secondary-color), #4468ff);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: all 0.4s;
+            box-shadow: 0 8px 20px rgba(68, 132, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary-color), #4468ff, var(--accent-color), #4484ff);
+            background-size: 300% 300%;
+            z-index: -1;
+            animation: gradientFlow 5s infinite ease-in-out;
+            opacity: 0.8;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(68, 132, 255, 0.5);
+        }
+        
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+        }
+        
+        .social-links {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-links a:hover {
+            color: white;
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(68, 132, 255, 0.3);
+        }
+        
+        footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .thank-you-content {
+                padding: 30px;
+            }
+            
+            .thank-you-title {
+                font-size: 28px;
+            }
+            
+            .thank-you-message {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Nino Beluze</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Thank You Section -->
+    <section class="thank-you-section">
+        <div class="container">
+            <div class="thank-you-content">
+                <h1 class="thank-you-title">Merci pour votre message !</h1>
+                <p class="thank-you-message">Votre message a été envoyé avec succès. Je vous remercie pour votre intérêt et vous répondrai dans les plus brefs délais.</p>
+                <a href="index.html" class="btn-primary">Retour à l'accueil</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/ninobeluze" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/NinoBlz" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 Nino Beluze. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
